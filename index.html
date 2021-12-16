@@ -331,14 +331,27 @@ render: {
 Composite.add(world, [
     stack
 ]);
-shapeAmount = 12;
+shapeAmount = 6;
 shapeSize = sW/55;
 var stack = Composites.stack(sW/2 - (shapeAmount/2 * shapeSize),sH/2 - (shapeAmount/2 * shapeSize), shapeAmount/2,shapeAmount/2, 0, 0, function(x, y) {
         return Bodies.circle(x, y, shapeSize, {
             restitution: .5,
             density:.05,
     render: {
-    fillStyle: '#c1d8e8',
+    fillStyle: 'white',
+    strokeStyle: 'white',
+            lineWidth:0
+    }
+});
+});
+World.add(engine.world, stack);
+
+var stack = Composites.stack(sW/2 - (shapeAmount/2 * shapeSize),sH/2 - (shapeAmount/2 * shapeSize), shapeAmount/2,shapeAmount/2, 0, 0, function(x, y) {
+        return Bodies.circle(x, y, shapeSize, {
+            restitution: .5,
+            density:.05,
+    render: {
+    fillStyle: '#c0d7ea',
     strokeStyle: 'white',
             lineWidth:0
     }
@@ -383,7 +396,7 @@ var explosion = function(engine) {
         var body = bodies[i];
 
         if (!body.isStatic && body.position.y <= 900) {
-            var forceMagnitude = 0.045 * body.mass;
+            var forceMagnitude = 0.048 * body.mass;
 
             Body.applyForce(body, body.position, {
                 x: (forceMagnitude + Common.random() * forceMagnitude) * Common.choose([1, -1]), 
