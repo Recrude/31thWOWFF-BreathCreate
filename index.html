@@ -169,36 +169,16 @@
         height: inherit;
         z-index: 1;
     }
-    .video-container{
-    width: 100vw;
-    height: 100vh;
-    position: absolute;
-    -webkit-transform: scale(1.4);
-  -ms-transform: scale(1.4);
-  transform: scale(1.4);
-    }
         
-    iframe {
-    position: absolute;
-    top: 45%;
-    left: 50%;
-    width: 120vw;
-    height: 150vh;
-    transform: translate(-50%, -50%);
-    }
-
-    @media (min-aspect-ratio: 16/9) {
-    .video-container iframe {
-        /* height = 100 * (9 / 16) = 56.25 */
-        height: 56.25vw;
-    }
-    }
-        
-    @media (max-aspect-ratio: 16/9) {
-    .video-container iframe {
-        /* width = 100 / (9 / 16) = 177.777777 */
-        width: 177.78vh;
-    }
+    @media screen and (max-width: 479px) {
+      .background-video {
+        -webkit-transform: translate(0px, +5vh) scale(1.4);
+        -ms-transform: translate(0px, +5vh) scale(1.4);
+        transform: translate(0px, +5vh) scale(1.4);
+        text-align: center;
+        text-decoration: none;
+        margin: -5vh;
+      }
     }
     .imageDiv{
         display: flex;
@@ -264,15 +244,22 @@
 .footersection wf-section{
   display: none;
 }
+.background-video {
+  width: 100vw;
+  height: 100vh;
+  -webkit-transform: scale(1.3);
+  -ms-transform: scale(1.3);
+  transform: scale(1.3);
+}
 </style>
   <div class="maincontents wf-section">
     <div class="buttonwrapper">
       <button class ="add-circle" href="#"></a>
     </div>
-    <div class="video-container">
-        <iframe src="https://www.youtube-nocookie.com/embed/FlU2CYdNvVk?controls=0&autoplay=1&loop=1&mute=1&playlist=FlU2CYdNvVk"></iframe>
-    </div>
-
+    <div data-poster-url="https://uploads-ssl.webflow.com/61bb12a097901c8609795d97/61bb2b3099c8bc755a93a7d9_2020 WOWFF REEL-poster-00001.jpg" data-video-urls="https://uploads-ssl.webflow.com/61bb12a097901c8609795d97/61bb2b3099c8bc755a93a7d9_2020 WOWFF REEL-transcode.mp4,https://uploads-ssl.webflow.com/61bb12a097901c8609795d97/61bb2b3099c8bc755a93a7d9_2020 WOWFF REEL-transcode.webm" data-autoplay="true" data-loop="true" data-wf-ignore="true" class="background-video w-background-video w-background-video-atom"><video autoplay="" loop="" style="background-image:url(&quot;https://uploads-ssl.webflow.com/61bb12a097901c8609795d97/61bb2b3099c8bc755a93a7d9_2020 WOWFF REEL-poster-00001.jpg&quot;)" muted="" playsinline="" data-wf-ignore="true" data-object-fit="cover">
+      <source src="https://uploads-ssl.webflow.com/61bb12a097901c8609795d97/61bb2b3099c8bc755a93a7d9_2020 WOWFF REEL-transcode.mp4" data-wf-ignore="true">
+      <source src="https://uploads-ssl.webflow.com/61bb12a097901c8609795d97/61bb2b3099c8bc755a93a7d9_2020 WOWFF REEL-transcode.webm" data-wf-ignore="true">
+    </video></div>
   </div>
 
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
@@ -329,7 +316,7 @@ Runner.run(runner, engine);
 
 //random circles
 var stack = Composites.stack(20, 100, 5, 5, 20, 40, function(x, y) {
-    return Bodies.circle(window.innerWidth/2, window.innerHeight/2-200, 5 + Common.random() * 30,{
+    return Bodies.circle(window.innerWidth/2, window.innerHeight/2-150, 5 + Common.random() * 20,{
         restitution: .5,
   density:.5,
 render: {
@@ -456,7 +443,7 @@ Composite.add(world, mouseConstraint);
 
 //create button
 var addCircle = function () {
-    return Bodies.circle(window.innerWidth/2, window.innerHeight/2-200, 30*Math.random()+15,{
+    return Bodies.circle(window.innerWidth/2, window.innerHeight/2-150, 20*Math.random()+10,{
         restitution: .5,
             density:.05,
     render: {
