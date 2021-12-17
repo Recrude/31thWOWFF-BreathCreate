@@ -455,7 +455,7 @@ Composite.add(world, mouseConstraint);
 
 
 //create button
-var addCircle = function () {
+var addCircle1 = function () {
     return Bodies.circle(window.innerWidth/2, window.innerHeight/2-150, 20*Math.random()+10,{
         restitution: .5,
             density:.05,
@@ -465,12 +465,33 @@ var addCircle = function () {
             lineWidth:0
     }
 });}
+var addCircle2 = function () {
+    return Bodies.circle(window.innerWidth/2, window.innerHeight/2-150, 20*Math.random()+10,{
+        restitution: .5,
+            density:.05,
+    render: {
+    fillStyle: 'white',
+    strokeStyle: 'white',
+            lineWidth:0
+    }
+});}
+var addCircle3 = function () {
+    return Bodies.circle(window.innerWidth/2, window.innerHeight/2-150, 20*Math.random()+10,{
+        restitution: .5,
+            density:.05,
+    render: {
+    fillStyle: '#c0d7ea',
+    strokeStyle: 'white',
+            lineWidth:0
+    }
+});}
 $('.add-circle').on('click', function () {
-    World.add(engine.world, addCircle());
-    World.add(engine.world, addCircle());
-    World.add(engine.world, addCircle());
-    World.add(engine.world, addCircle());
-    World.add(engine.world, addCircle());
+    World.add(engine.world, addCircle1());
+    World.add(engine.world, addCircle2());
+    World.add(engine.world, addCircle3());
+    World.add(engine.world, addCircle1());
+    World.add(engine.world, addCircle2());
+    World.add(engine.world, addCircle3());
 });
 // keep the mouse in sync with rendering
 render.mouse = mouse;
