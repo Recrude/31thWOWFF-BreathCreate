@@ -1973,7 +1973,13 @@ a {
     border-bottom: 0.3px solid #000;
     border-left: 0px none #000;
   }
-
+  .background-video {
+    -webkit-transform: translate(0px, +5vh) scale(1.4);
+    -ms-transform: translate(0px, +5vh) scale(1.4);
+    transform: translate(0px, +5vh) scale(1.4);
+    text-align: center;
+    text-decoration: none;
+  }
   .mainheader {
     display: none;
     overflow: hidden;
@@ -2120,8 +2126,6 @@ a {
     -webkit-flex: 1;
     -ms-flex: 1;
     flex: 1;
-    -webkit-filter: blur(2px);
-    filter: blur(2px);
   }
 
   .background-video.onleft {
